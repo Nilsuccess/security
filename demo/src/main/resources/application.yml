@@ -1,0 +1,25 @@
+server:
+  port: 8060
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/security?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+  session:
+    store-type: none
+  http: 
+    encoding: 
+      force: true
+      charset: UTF-8
+      enabled: true
+#security:
+#  basic:
+#    enabled: false
+demo:
+  security:
+    browser:
+      loginPage: /singIn.html
+      loginType: JSON #REDIRECT
