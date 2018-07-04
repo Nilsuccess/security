@@ -23,3 +23,10 @@ demo:
     browser:
       loginPage: /singIn.html
       loginType: JSON #REDIRECT
+      rememberMeSecond: 3600
+    validateCode: 
+      imageCode:
+#        length: 6
+        width: 100
+        urls: /authentication/form  #,/user/*
+      

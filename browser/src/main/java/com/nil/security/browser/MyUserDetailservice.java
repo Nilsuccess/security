@@ -32,7 +32,7 @@ public class MyUserDetailservice implements UserDetailsService{
 		logger.info("加密密码是：" + password);
 		
 		//这里的user相当于冲数据库查询出来的
-		User user = new User(username, password, false, true, true, true, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+		User user = new User(username, password, true, true, true, true, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
 //		new User(username, "123456", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
 		return user;
 	}

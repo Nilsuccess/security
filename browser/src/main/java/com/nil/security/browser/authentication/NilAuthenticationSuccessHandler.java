@@ -35,10 +35,10 @@ public class NilAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
 		
-		logger.info("登陆成功");
+		logger.info("登陆成功===>"+securityProperties.getBrowserProperties().getLoginType());
 		//如果请求的方式是json，
 		if (LoginType.JSON.equals(securityProperties.getBrowserProperties().getLoginType())) {
-			response.setContentType("application/json:charset=UTF-8");
+			response.setContentType("application/json;harset=UTF-8");
 			response.getWriter().write(objectMapper.writeValueAsString(authentication));
 		} else {//如果是同步请求就调用父类的方法（跳转）
 			super.onAuthenticationSuccess(request, response, authentication);

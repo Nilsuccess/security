@@ -9,15 +9,27 @@ public class BrowserProperties {
 
 	
 	
+	
+
+	/**
+	 * 配置默认的登陆页
+	 */
+	private String loginPage = "/singIn.html";
+	
+	/**
+	 * 返回数据的格式
+	 */
+	private LoginType loginType = LoginType.JSON;
+	/**
+	 * 记住我的时间，也就是tooken的有效期，单位秒
+	 */
+	private int rememberMeSecond;
+
 	public BrowserProperties() {
 		//@ConfigurationProperties注解的类在spring容器中是单例的
 		System.out.println("BrowserProperties初始化》》》》》》");
 	}
-
-	private String loginPage = "/singIn.html";
 	
-	private LoginType loginType = LoginType.JSON;
-
 	public String getLoginPage() {
 		return loginPage;
 	}
@@ -33,6 +45,14 @@ public class BrowserProperties {
 
 	public void setLoginType(LoginType loginType) {
 		this.loginType = loginType;
+	}
+
+	public int getRememberMeSecond() {
+		return rememberMeSecond;
+	}
+
+	public void setRememberMeSecond(int rememberMeSecond) {
+		this.rememberMeSecond = rememberMeSecond;
 	}
 	
 	

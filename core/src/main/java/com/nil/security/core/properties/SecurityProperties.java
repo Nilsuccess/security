@@ -10,6 +10,9 @@ public class SecurityProperties {
 
 	@Autowired
 	private BrowserProperties browser;
+	
+	@Autowired
+	private ValidateCodeProperties validateCode;
 
 	public BrowserProperties getBrowserProperties() {
 		return browser;
@@ -17,6 +20,14 @@ public class SecurityProperties {
 
 	public void setBrowserProperties(BrowserProperties browser) {
 		this.browser = browser;
+	}
+
+	public ValidateCodeProperties getValidateCodeProperties() {
+		return validateCode;
+	}
+
+	public void setValidateCodeProperties(ValidateCodeProperties validateCodeProperties) {
+		this.validateCode = validateCodeProperties;
 	}
 	
 	
