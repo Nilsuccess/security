@@ -87,7 +87,6 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()								//下面都是授权的配置
 				.antMatchers(
 								"/authentication/require",
-								"/authentication/form",
 								securityProperties.getBrowserProperties().getLoginPage(),
 								"/code/image"
 							).permitAll()								//配置不需要认证的url
