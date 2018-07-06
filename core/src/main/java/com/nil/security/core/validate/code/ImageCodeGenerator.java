@@ -8,6 +8,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
 	 * @return
 	 */
 	@Override
-	public ImageCode createImageCode(HttpServletRequest request) {
+	public ValidateCode createImageCode(HttpServletRequest request) {
 		int width = ServletRequestUtils.getIntParameter(request, "width", securityProperties.getValidateCodeProperties().getImageCodeProperties().getWidth());
 		int height = ServletRequestUtils.getIntParameter(request, "height", securityProperties.getValidateCodeProperties().getImageCodeProperties().getHeight());
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -59,6 +60,20 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
 		return new ImageCode(image, sRand, securityProperties.getValidateCodeProperties().getImageCodeProperties().getExpireIn());
 	
 	}
+	
+	
+	@Override
+	public ValidateCode createSmsCode(HttpServletRequest request) {
+		String code = RandomStringUtils.randomNumeric(securityProperties.getValidateCodeProperties().getSmsCode().getLength());
+		return new ValidateCode(code, securityProperties.getValidateCodeProperties().getImageCodeProperties().getExpireIn());
+	}
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 生成随机条纹
 	 * @param fc
@@ -87,6 +102,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator{
 	public void setSecurityProperties(SecurityProperties securityProperties) {
 		this.securityProperties = securityProperties;
 	}
+	
 	
 	
 

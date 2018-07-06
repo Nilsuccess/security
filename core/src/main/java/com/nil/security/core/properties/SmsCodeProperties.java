@@ -4,17 +4,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "demo.security.validateCode.imageCode")
-public class ImageCodeProperties{
+@ConfigurationProperties(prefix = "demo.security.validateCode.smsCode")
+public class SmsCodeProperties {
 	
-	/**
-	 * 图片验证码的宽度
-	 */
-	private int width = 67;
-	/**
-	 * 图片验证码的高度
-	 */
-	private int height = 23;
+	
 	/**
 	 * 图片验证码的位数
 	 */
@@ -27,19 +20,7 @@ public class ImageCodeProperties{
 	 * 需要验证图片验证码的url
 	 */
 	private String urls;
-
-	public int getWidth() {
-		return width;
-	}
-	public void setWidth(int width) {
-		this.width = width;
-	}
-	public int getHeight() {
-		return height;
-	}
-	public void setHeight(int height) {
-		this.height = height;
-	}
+	
 	public int getLength() {
 		return length;
 	}
@@ -58,7 +39,6 @@ public class ImageCodeProperties{
 	public void setUrls(String urls) {
 		this.urls = urls;
 	}
-
 	
 	
 }

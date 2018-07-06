@@ -18,7 +18,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nil.security.browser.support.SimpleResponse;
 import com.nil.security.core.properties.LoginType;
 import com.nil.security.core.properties.SecurityProperties;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 @Component("nilAuthenticationFailureHandler")
 public class NilAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {

@@ -13,6 +13,11 @@ public class SecurityProperties {
 	
 	@Autowired
 	private ValidateCodeProperties validateCode;
+	
+	@Autowired
+	private SocialProperties socialProperties;
+	
+	
 
 	public BrowserProperties getBrowserProperties() {
 		return browser;
@@ -29,6 +34,16 @@ public class SecurityProperties {
 	public void setValidateCodeProperties(ValidateCodeProperties validateCodeProperties) {
 		this.validateCode = validateCodeProperties;
 	}
+
+	public SocialProperties getSocialProperties() {
+		return socialProperties;
+	}
+
+	public void setSocialProperties(SocialProperties socialProperties) {
+		this.socialProperties = socialProperties;
+	}
+
+	
 	
 	
 }

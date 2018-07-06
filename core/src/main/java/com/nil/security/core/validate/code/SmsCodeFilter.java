@@ -26,11 +26,11 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.nil.security.core.properties.SecurityProperties;
 
 /**
- * 图片验证码过滤器
+ * 短信验证码过滤器
  * @author NIL
  *
  */
-public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean{
+public class SmsCodeFilter extends OncePerRequestFilter implements InitializingBean{
 	
 	@Autowired
 	private AuthenticationFailureHandler authenticationFailureHandler;
@@ -48,7 +48,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	@Override
 	public void afterPropertiesSet() throws ServletException {
 		super.afterPropertiesSet();
-		String[] configUrls = StringUtils.split(securityProperties.getValidateCodeProperties().getImageCodeProperties().getUrls(), ",");
+		String[] configUrls = StringUtils.split(securityProperties.getValidateCodeProperties().getSmsCode().getUrls(), ",");
 		for (String string : configUrls) {
 			urls.add(string);
 		}
@@ -79,9 +79,9 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 
 	private void validate(ServletWebRequest request) throws ServletRequestBindingException {
 		//1.获取session中的验证码
-		ImageCode codeInSession = (ImageCode) sessionStrategy.getAttribute(request, VaildateCodeController.SESSION_KEY_SMS);
+		ValidateCode codeInSession = (ValidateCode) sessionStrategy.getAttribute(request, VaildateCodeController.SESSION_KEY_SMS);
 		//2.获取表单中的验证码
-		String codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(), "imageCode");
+		String codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(), "smsCode");
 		
 		//3.比较验证码
 		if (StringUtils.isBlank(codeInRequest)) {

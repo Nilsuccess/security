@@ -9,5 +9,17 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface ValidateCodeGenerator {
 
-	ImageCode createImageCode(HttpServletRequest request);
+	/**
+	 * 生成图片验证码
+	 * @param request
+	 * @return
+	 */
+	ValidateCode createImageCode(HttpServletRequest request);
+	
+	/**
+	 * 生成短信验证码
+	 * @param request
+	 * @return
+	 */
+	ValidateCode createSmsCode(HttpServletRequest request);
 }

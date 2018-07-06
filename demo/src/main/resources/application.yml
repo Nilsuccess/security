@@ -29,4 +29,12 @@ demo:
 #        length: 6
         width: 100
         urls: /authentication/form  #,/user/*
-      
+      smsCode: 
+        length: 6
+        expireIn: 60
+        urls: /authentication/mobile  #,/user/*
+    socialProperties:
+      qqProperties:
+        providerId: qq
+        app-id: 
+        app-secret: 

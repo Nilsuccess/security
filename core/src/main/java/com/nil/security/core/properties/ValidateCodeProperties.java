@@ -10,6 +10,9 @@ public class ValidateCodeProperties {
 	
 	@Autowired
 	private ImageCodeProperties imageCode;
+	
+	@Autowired
+	private SmsCodeProperties smsCode;
 
 	public ImageCodeProperties getImageCodeProperties() {
 		return imageCode;
@@ -19,6 +22,12 @@ public class ValidateCodeProperties {
 		this.imageCode = imageCodeProperties;
 	}
 	
-	
+	public SmsCodeProperties getSmsCode() {
+		return smsCode;
+	}
+
+	public void setSmsCode(SmsCodeProperties smsCode) {
+		this.smsCode = smsCode;
+	}
 
 }
